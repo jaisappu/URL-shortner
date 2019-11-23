@@ -1,0 +1,54 @@
+<div class="container container-width">
+  <div style="background-color:ghostwhite;display: block;margin-top:32px;margin-bottom: 70px;">
+    <div style="text-align: center;">
+      <h4 style="padding:1rem">Welcome to URL Shortener</h4>
+    </div>
+    <div class="row p-16">
+      <div class="col-sm-12">
+        <div class="input-group">
+          <input type="text" name="longUrl" id="longUrl" class="form-control float-left" placeholder="Enter url here"
+            [(ngModel)]="longUrl">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Shorten Url</button>
+          </span>
+        </div>
+        <small *ngIf="isRequired" class="text-danger">Please enter the url</small>
+      </div>
+    </div>
+
+    <div class="row p-16">
+      <div class="col-sm-12">
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Customized Url code</span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="urlCode">
+        </div>
+        <small>May contain letters, numbers, and dashes.</small>
+        <small *ngIf="isUrlCodeValid" class="text-danger">{{msg}}</small>
+      </div>
+    </div>
+
+
+    <div class="row p-16" *ngIf="url">
+      <div class="col-sm-12">
+        <label>Shorten URL: </label>
+        <span>
+          <button type="button" class="btn btn-link" (click)="openLink()">{{url?.shortUrl}}</button>
+        </span>
+        <span>
+          <button type="button" class="btn btn-clipboard" (click)="copyToClipboard()" title="copy link">Copy</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="row p-16" *ngIf="url">
+      <div class="col-sm-12 col-md-12" *ngIf="url?.createdAt">
+        <p>Created on : {{url?.createdAt| date:'MMM d, y, h:mm:ss a'}}</p>
+      </div>
+      <div class="col-sm-12 col-md-6" *ngIf="url?.expireAt">
+        <p>Valid till : {{url?.expireAt | date:'MMM d, y, h:mm:ss a'}}</p>
+      </div>
+    </div>
+  </div>
+</div>
