@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+
+.p-16 {
+  padding: 16px;
+}
+
+.pt-16 {
+  padding-top: 16px;
+}
+
+.pb-16 {
+  padding-bottom: 16px;
+}
+
+
+.container-width {
+  max-width: 800px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+body {
+  height: 100%;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 3rem;
+}

@@ -1,0 +1,29 @@
+<div class="container container-width page-content">
+  <div class="row mt-16">
+    <div class="col-sm-12">
+      <table class="table table-sm table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Orginal URL</th>
+            <th>Shorten URL</th>
+            <th>Expiries on</th>
+            <th>Created on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of urls; let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{item?.longUrl}}</td>
+            <td>
+              <button type="button" class="btn btn-link" (click)="openLink(item)">{{item?.shortUrl}}</button>
+            </td>
+            <td>{{item?.createdAt | date:'MMM d, y, h:mm:ss a'}}</td>
+            <td>{{item?.expireAt | date:'MMM d, y, h:mm:ss a'}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
