@@ -31,7 +31,7 @@ export class HomePageComponent implements OnInit {
 
 
     if (this.urlCode) {
-      const found = this.urlCode.match(this.regex).join();
+      const found = this.urlCode.match(this.regex);
       if (found) {
         this.msg = 'Invalid url code';
         return this.isUrlCodeValid = true;
